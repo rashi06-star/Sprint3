@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dev-Detective - GitHub profile and repository explorer">
+  <title>Dev-Detective | GitHub Explorer</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="navbar">
+    <a href="#" class="brand">
+      <span class="brand-icon">⌘</span>
+      Dev-Detective<span class="dot">.</span>
+    </a>
+    <div class="nav-actions">
+      <span class="api-status"><span class="status-dot"></span> GitHub API</span>
+      <button id="battleToggle" class="btn btn-outline" type="button">
+        ⚔ Battle Mode
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <span class="eyebrow">DEVELOPER INTELLIGENCE TOOL</span>
+      <h1>Every developer has a <span>story.</span></h1>
+      <p>Investigate GitHub profiles, explore repositories, and compare developers.</p>
+    </section>
+
+    <section class="search-panel">
+      <form id="searchForm" class="search-form">
+        <label class="sr-only" for="username">GitHub username</label>
+        <span class="search-icon">⌕</span>
+        <input id="username" type="text"
+          placeholder="Enter GitHub username (e.g. octocat)"
+          autocomplete="off" required>
+        <button class="btn btn-primary" type="submit">Search Profile ↗</button>
+      </form>
+      <p class="hint">Try searching for <button class="sample-user" type="button">octocat</button></p>
+    </section>
+
+    <section id="battlePanel" class="battle-panel hidden">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">HEAD-TO-HEAD</span>
+          <h2>Developer Battle</h2>
+        </div>
+        <span class="battle-symbol">⚔</span>
+      </div>
+      <form id="battleForm" class="battle-form">
+        <div class="field">
+          <label for="usernameOne">Developer One</label>
+          <input id="usernameOne" type="text" placeholder="e.g. torvalds" required>
+        </div>
+        <span class="versus">VS</span>
+        <div class="field">
+          <label for="usernameTwo">Developer Two</label>
+          <input id="usernameTwo" type="text" placeholder="e.g. octocat" required>
+        </div>
+        <button class="btn btn-primary battle-submit" type="submit">Compare Developers</button>
+      </form>
+    </section>
+
+    <div id="loading" class="loading hidden" role="status" aria-live="polite">
+      <span class="spinner"></span>
+      <p>Investigating GitHub data...</p>
+    </div>
+
+    <div id="errorMessage" class="error-box hidden" role="alert"></div>
+
+    <section id="profileSection" class="hidden">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">INVESTIGATION RESULTS</span>
+          <h2>Developer Profile</h2>
+        </div>
+        <span class="result-label">PUBLIC DATA</span>
+      </div>
+      <div id="profileCard"></div>
+      <div class="section-heading repo-heading">
+        <div>
+          <span class="eyebrow">CODE & CONTRIBUTIONS</span>
+          <h2>Latest Repositories</h2>
+        </div>
+        <span id="repoCount" class="result-label"></span>
+      </div>
+      <div id="repoList" class="repo-grid"></div>
+    </section>
+
+    <section id="battleResults" class="hidden">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">BATTLE REPORT</span>
+          <h2>Developer Comparison</h2>
+        </div>
+      </div>
+      <div id="battleCards" class="battle-results-grid"></div>
+      <p id="battleSummary" class="battle-summary"></p>
+    </section>
+
+    <section id="welcome" class="welcome">
+      <div class="welcome-icon">⌘</div>
+      <h2>Your next discovery starts here.</h2>
+      <p>Search any public GitHub profile to explore developer information and repositories.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Dev-Detective · Built with HTML, CSS & JavaScript</p>
+    <p>Data provided by the GitHub REST API</p>
+  </footer>
+</body>
+</html>

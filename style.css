@@ -1,0 +1,634 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #0b1020;
+  --panel: #121a2c;
+  --panel-light: #172238;
+  --border: #27344b;
+  --text: #f0f4ff;
+  --muted: #91a0b9;
+  --accent: #8b9cff;
+  --accent-dark: #6479f2;
+  --green: #48d597;
+  --red: #ff727d;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 50% 0%, #1a2650 0%, transparent 45%),
+    var(--bg);
+  color: var(--text);
+  font-family: "DM Sans", sans-serif;
+  line-height: 1.6;
+}
+
+button, input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.navbar {
+  min-height: 76px;
+  padding: 16px 7%;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: rgba(11, 16, 32, 0.8);
+}
+
+.brand {
+  font: 700 23px "Space Grotesk", sans-serif;
+  letter-spacing: -0.8px;
+}
+
+.brand-icon {
+  color: var(--accent);
+  margin-right: 9px;
+}
+
+.dot {
+  color: var(--accent);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.api-status {
+  font-size: 12px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-dot {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 10px #48d59766;
+}
+
+.container {
+  width: min(100% - 36px, 940px);
+  margin: 0 auto;
+}
+
+.hero {
+  text-align: center;
+  padding: 78px 0 36px;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.hero h1 {
+  font: 700 clamp(31px, 5vw, 49px) "Space Grotesk", sans-serif;
+  line-height: 1.2;
+  margin: 17px 0;
+  letter-spacing: -1.8px;
+}
+
+.hero h1 span {
+  color: var(--accent);
+}
+
+.hero p {
+  color: var(--muted);
+  max-width: 550px;
+  margin: 0 auto;
+  font-size: 14px;
+}
+
+.search-panel,
+.battle-panel {
+  background: rgba(18, 26, 44, 0.94);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px;
+  margin-bottom: 35px;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #0b1020;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 7px;
+}
+
+.search-icon {
+  font-size: 28px;
+  color: var(--muted);
+  padding-left: 8px;
+}
+
+.search-form input,
+.field input {
+  min-width: 0;
+  width: 100%;
+  background: transparent;
+  color: var(--text);
+  border: none;
+  outline: none;
+  padding: 10px 4px;
+}
+
+.search-form input::placeholder,
+.field input::placeholder {
+  color: #71809a;
+}
+
+.btn {
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 11px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  transition: 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--accent-dark);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #7d8dfb;
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.btn-outline:hover,
+.btn-outline.active {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.hint {
+  font-size: 11px;
+  color: var(--muted);
+  margin: 12px 4px 0;
+}
+
+.sample-user {
+  background: none;
+  color: var(--accent);
+  border: none;
+  text-decoration: underline;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin: 28px 0 16px;
+}
+
+.section-heading h2 {
+  font: 600 23px "Space Grotesk", sans-serif;
+  margin-top: 4px;
+}
+
+.result-label {
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 5px 9px;
+  border-radius: 6px;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.profile-card {
+  background: linear-gradient(145deg, #172238, #111827);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 25px;
+}
+
+.profile-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+}
+
+.avatar {
+  width: 112px;
+  height: 112px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 2px solid #3c4d70;
+  background: var(--panel-light);
+}
+
+.profile-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.profile-info h3 {
+  font: 700 25px "Space Grotesk", sans-serif;
+  overflow-wrap: anywhere;
+}
+
+.username-link {
+  color: var(--accent);
+  font-size: 13px;
+}
+
+.profile-bio {
+  color: #c1cbde;
+  font-size: 13px;
+  margin: 12px 0;
+  overflow-wrap: anywhere;
+}
+
+.profile-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.stat {
+  padding: 14px;
+  background: #0c1425;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.stat-label {
+  color: var(--muted);
+  font-size: 10px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.stat-value {
+  font-size: 15px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.profile-link {
+  color: var(--accent);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.profile-link:hover,
+.repo-name:hover {
+  text-decoration: underline;
+}
+
+.repo-heading {
+  margin-top: 34px;
+}
+
+.repo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 40px;
+}
+
+.repo-card {
+  padding: 19px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  min-width: 0;
+  transition: border-color 0.2s;
+}
+
+.repo-card:hover {
+  border-color: #6579c4;
+}
+
+.repo-name {
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.repo-description {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 10px 0 16px;
+  overflow-wrap: anywhere;
+}
+
+.repo-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+  font-size: 11px;
+  color: #c2cce0;
+}
+
+.repo-language {
+  color: var(--green);
+}
+
+.loading {
+  text-align: center;
+  padding: 40px 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.spinner {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 12px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.error-box {
+  padding: 16px 20px;
+  border: 1px solid #743741;
+  background: #2b1724;
+  color: #ffb0b7;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  font-size: 13px;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 25px;
+  background: var(--panel);
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.welcome {
+  text-align: center;
+  padding: 44px 20px 75px;
+}
+
+.welcome-icon {
+  margin: 0 auto 17px;
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  font-size: 29px;
+  color: var(--accent);
+  background: #202a4a;
+  border: 1px solid #39466b;
+  border-radius: 16px;
+}
+
+.welcome h2 {
+  font: 600 20px "Space Grotesk", sans-serif;
+  margin-bottom: 9px;
+}
+
+.welcome p {
+  color: var(--muted);
+  font-size: 13px;
+  max-width: 470px;
+  margin: auto;
+}
+
+.battle-panel {
+  margin-top: -8px;
+}
+
+.battle-form {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: end;
+  gap: 14px;
+}
+
+.field label {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 7px;
+  color: var(--muted);
+}
+
+.field input {
+  border: 1px solid var(--border);
+  background: #0b1020;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.versus {
+  font: 700 14px "Space Grotesk", sans-serif;
+  color: var(--accent);
+  padding-bottom: 12px;
+}
+
+.battle-submit {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+.battle-results-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.battle-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px;
+  text-align: center;
+  min-width: 0;
+}
+
+.battle-card.winner {
+  border-color: var(--green);
+  box-shadow: 0 0 20px #48d59712;
+}
+
+.battle-card.loser {
+  border-color: var(--red);
+}
+
+.battle-card .avatar {
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  margin-bottom: 12px;
+}
+
+.battle-card h3 {
+  font: 600 19px "Space Grotesk", sans-serif;
+  overflow-wrap: anywhere;
+}
+
+.battle-card .stars {
+  font: 700 29px "Space Grotesk", sans-serif;
+  margin: 13px 0 3px;
+}
+
+.battle-card.winner .stars,
+.winner-label {
+  color: var(--green);
+}
+
+.battle-card.loser .stars {
+  color: var(--red);
+}
+
+.battle-summary {
+  text-align: center;
+  padding: 20px 10px 35px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+footer {
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 22px 15px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    padding: 15px 18px;
+    align-items: flex-start;
+  }
+
+  .brand {
+    font-size: 18px;
+  }
+
+  .nav-actions {
+    gap: 8px;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .hero {
+    padding-top: 50px;
+  }
+
+  .search-panel,
+  .battle-panel {
+    padding: 14px;
+  }
+
+  .search-form {
+    flex-wrap: wrap;
+  }
+
+  .search-form input {
+    flex: 1;
+  }
+
+  .search-form .btn {
+    width: 100%;
+  }
+
+  .profile-card {
+    padding: 17px;
+  }
+
+  .profile-top {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .avatar {
+    width: 88px;
+    height: 88px;
+  }
+
+  .profile-stats {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .repo-grid,
+  .battle-results-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .battle-form {
+    grid-template-columns: 1fr;
+  }
+
+  .versus {
+    text-align: center;
+    padding: 0;
+  }
+
+  .section-heading h2 {
+    font-size: 20px;
+  }
+}
