@@ -18,6 +18,13 @@ HTML5, CSS3, JavaScript, GitHub REST API.
 3. Search for any GitHub username.
 
 **Note:** An internet connection is required to fetch GitHub data.
+## Screenshots
+
+### Desktop View
+![Desktop Preview](./images/desktop.png)
+
+### Mobile View
+![Mobile Preview](./images/mobile.png)
 
 ## Author
 Rashi Khandelwal
